@@ -16,5 +16,14 @@ public class TestingScript : MonoBehaviour
         {
             GameManager.AmendHealth(25, '-');
         }
+        if (InputSystem.GetDevice<Keyboard>().eKey.wasPressedThisFrame)
+        {
+            GameManager.AmendHealth(25, '+');
+        }
+
+        if (InputSystem.GetDevice<Keyboard>().xKey.wasPressedThisFrame)
+        {
+            GameManager.AddXP(10);
+        }
     }
 }

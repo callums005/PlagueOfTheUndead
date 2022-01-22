@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
 
 
 public static class GameManager
 {
     private static int Currency = 50;
-    private static decimal MaxHealth = 100;
+    private static readonly decimal  MaxHealth = 100;
     private static decimal Health = 100;
+    private static decimal XP = 0;
 
     public static int GetCurrency()
     {
@@ -23,6 +25,21 @@ public static class GameManager
             Debug.LogError("Invalid sign [AmendCurrency(int amount, char sign)");
     }
 
+    public static decimal GetXP()
+    {
+        return XP;
+    }
+
+    public static void AddXP(decimal amount)
+    {
+        XP += amount;
+    }
+
+    public static void SetXP(decimal amount)
+    {
+        XP = amount;
+    }
+
     public static decimal GetHealth()
     {
         return Health;
@@ -31,14 +48,17 @@ public static class GameManager
     public static void AmendHealth(decimal amount, char sign)
     {
         if (sign == '+')
-            Health += amount;
+            if (Health + amount > MaxHealth)
+                Health = MaxHealth;
+            else
+                Health += amount;
         else if (sign == '-')
             if (Health - amount > 0)
                 Health -= amount;
             else
                 Health = 0;
         else
-            Debug.LogError("Invalid sign [AmendHealth(int amount, char sign)");
+            Debug.LogError("Invalid sign [AmendHealth(decimal amount, char sign)");
     }
 
 }
