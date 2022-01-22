@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public Gradient HealthBarGradient;
 
     private decimal m_HealthBuffer = GameManager.GetHealth();
-    private decimal m_BufferAmount = 0.2m;
+    private decimal m_BufferAmount = 0.5m;
 
 
     // Update is called once per frame
