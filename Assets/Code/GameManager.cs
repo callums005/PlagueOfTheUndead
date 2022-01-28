@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
 
+public enum CharacterType { Any, Knight, Archer }
 
 public static class GameManager
 {
+    public static CharacterType CharType;
+
     private static int Currency = 50;
     private static readonly decimal  MaxHealth = 100;
     private static decimal Health = 100;

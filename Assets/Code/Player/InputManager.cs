@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
@@ -13,6 +11,9 @@ public class InputManager : MonoBehaviour
 
     [Header("Game Objects")]
     public CinemachineFreeLook FreeLookCamera;
+
+    [Header("Scripts")]
+    public InventoryManager InventoryManager;
 
     private Vector2 m_MoveValue;
     private Vector2 m_CameraValue;
@@ -32,6 +33,9 @@ public class InputManager : MonoBehaviour
 
             m_Controls.Player.JumpUse.performed += ctx => SetJumpValue(true);
             m_Controls.Player.JumpUse.canceled += ctx => SetJumpValue(false);
+
+            m_Controls.Player.SwitchWeapon.performed += ctx => InventoryManager.SwitchWeapon();
+            m_Controls.Player.UseConsumable.performed += ctx => InventoryManager.UseConsumable();
         }
         else if (Menu)
         {

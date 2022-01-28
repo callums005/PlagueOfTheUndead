@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +11,15 @@ public class UIManager : MonoBehaviour
     public Image HealthBarFill;
     public Gradient HealthBarGradient;
 
-    [Header("Health Bar")]
+    [Header("XP Bar")]
     public Slider XPSlider;
     public TMPro.TMP_Text XPLevelText;
+
+    [Header("Inventory")]
+    public Sprite SelectedItemSprite;
+    public Sprite UnselectedItemSprite;
+    public Image[] HUDBackgrounds = new Image[3];
+    public Image[] ItemImages = new Image[3];
 
     private decimal m_HealthBuffer = GameManager.GetHealth();
     private readonly decimal m_HealthBufferAmount = 0.5m;
@@ -49,5 +53,27 @@ public class UIManager : MonoBehaviour
 
         XPSlider.value = ((float)m_XPBuffer);
         XPLevelText.SetText(level.ToString());
+    }
+
+    public void UpdateInventoryUI(InventoryItem[] items, int selectedItemIndex)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] != null)
+            {
+                ItemImages[i].sprite = items[i].iSprite;
+                ItemImages[i].enabled = true;
+            }
+            else
+            {
+                ItemImages[i].sprite = null;
+                ItemImages[i].enabled = false;
+            }
+
+            if (i == selectedItemIndex)
+                HUDBackgrounds[i].sprite = SelectedItemSprite;
+            else
+                HUDBackgrounds[i].sprite = UnselectedItemSprite;
+        }
     }
 }

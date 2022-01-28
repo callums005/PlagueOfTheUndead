@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,10 +13,6 @@ public class TestingScript : MonoBehaviour
         if (InputSystem.GetDevice<Keyboard>().rKey.wasPressedThisFrame)
         {
             GameManager.AmendHealth(25, '-');
-        }
-        if (InputSystem.GetDevice<Keyboard>().eKey.wasPressedThisFrame)
-        {
-            GameManager.AmendHealth(25, '+');
         }
 
         if (InputSystem.GetDevice<Keyboard>().xKey.wasPressedThisFrame)
