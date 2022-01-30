@@ -6,8 +6,8 @@ public class Weapon : InventoryItem
     public int Damage;
     public float Range;
 
-    public override void Use()
+    public override void Use(int attack)
     {
-        Debug.Log("Using weapon");
+        Debug.Log("Using attack: " + attack.ToString() + " for weapon: " + iName);
     }
 }

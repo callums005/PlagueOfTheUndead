@@ -12,4 +12,5 @@ public class InventoryItem : ScriptableObject
     public ItemType iType;
 
     public virtual void Use() { throw new System.NotImplementedException(); }
+    public virtual void Use(int attack) { throw new System.NotImplementedException(); }
 }

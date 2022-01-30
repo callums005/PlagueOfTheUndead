@@ -36,6 +36,8 @@ public class InputManager : MonoBehaviour
 
             m_Controls.Player.SwitchWeapon.performed += ctx => InventoryManager.SwitchWeapon();
             m_Controls.Player.UseConsumable.performed += ctx => InventoryManager.UseConsumable();
+            m_Controls.Player.Attack1.performed += ctx => InventoryManager.UseSelectedItem(1);
+            m_Controls.Player.Attack2.performed += ctx => InventoryManager.UseSelectedItem(2);
         }
         else if (Menu)
         {

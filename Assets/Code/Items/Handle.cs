@@ -2,10 +2,20 @@
 
 public class Handle : MonoBehaviour
 {
-    public Transform handle;
+    public Vector3 position;
+    public Vector3 rotation;
+    
+    private GameObject handle;
 
-    private void Update()
+    private void Start()
     {
-        transform.localPosition = handle.position;
+        handle = GameObject.FindGameObjectWithTag("Hand");
+
+        if (handle != null)
+        {
+            transform.parent = handle.transform;
+            transform.localPosition = position;
+            transform.localEulerAngles = rotation;
+        }
     }
 }

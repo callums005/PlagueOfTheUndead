@@ -12,17 +12,21 @@ public class InventoryManager : MonoBehaviour
         [3]: Shield
     */
     public int SelectedItem;
+    private GameObject SelectedItemObject;
 
     [Space()]
     public UIManager uiManager;
 
     public void SwitchWeapon()
     {
+        Destroy(SelectedItemObject);
+
         if (SelectedItem == 0)
             SelectedItem = 1;
         else if (SelectedItem == 1)
             SelectedItem = 0;
 
+        SelectedItemObject = Instantiate(HUDItems[SelectedItem].iObject);
         uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
     }
 
@@ -37,6 +41,11 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void UseSelectedItem(int attack)
+    {
+        HUDItems[SelectedItem].Use(attack);
+    }
+
     public void SetItem(InventoryItem item, int slot)
     {
         if (item != null)
@@ -45,15 +54,24 @@ public class InventoryManager : MonoBehaviour
             {
                 if (slot == 2 && item.iType == ItemType.Consumable)
                     HUDItems[slot] = item;
-                if (slot == 3 && item.iType == ItemType.Shield) ;
+                if (slot == 3 && item.iType == ItemType.Shield) throw new System.NotImplementedException();
                 // TODO: Shield
                 if ((slot == 0 || slot == 1) && item.iType == ItemType.Weapon)
+                {
                     HUDItems[slot] = item;
+
+                    if (slot == SelectedItem)
+                    {
+                        Destroy(SelectedItemObject);
+                        SelectedItemObject = Instantiate(HUDItems[slot].iObject);
+                    }
+                }
             }
         }
     }
     private void Start()
     {
+        SelectedItemObject = Instantiate(HUDItems[SelectedItem].iObject);
         uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
     }
 }

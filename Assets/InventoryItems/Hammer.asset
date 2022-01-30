@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a759025803fe274c8beba01af314df2, type: 3}
-  m_Name: Primary
+  m_Name: Hammer
   m_EditorClassIdentifier: 
-  iName: Primary
+  iName: Hammer
   iSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  iObject: {fileID: 6603168810351633505, guid: 842786fbc1cc7be43bfb37a2ad5c7a7a, type: 3}
+  iObject: {fileID: 6438966611294635532, guid: 3f211e51c9dad6f4f8d7efaa35f2ecd8, type: 3}
   iCharacterType: 0
   iType: 0
-  Damage: 20
-  Range: 4
+  Damage: 40
+  Range: 2
