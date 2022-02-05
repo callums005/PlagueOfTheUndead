@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public float FollowRadius = 3f;
+    public float AgentReachedPathTargetDelay = 2f;
 
     public Transform Player;
     public Transform PathTarget;
@@ -29,12 +30,12 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            Vector3 lookDirection = (PathTarget.position - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(lookDirection.x, 0, lookDirection.z));
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-
             if (Agent.transform.position != PathTarget.position)
             {
+                //Vector3 lookDirection = (PathTarget.position - transform.position).normalized;
+                //Quaternion lookRotation = Quaternion.LookRotation(new Vector3(lookDirection.x, 0, lookDirection.z));
+                //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+
                 Agent.SetDestination(PathTarget.position);
             }
         }
