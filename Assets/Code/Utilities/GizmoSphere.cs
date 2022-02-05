@@ -5,10 +5,11 @@ using UnityEngine;
 public class GizmoSphere : MonoBehaviour
 {
     public float Size;
+    public Color Colour;
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Colour;
         Gizmos.DrawWireSphere(transform.position, Size);
     }
 }
