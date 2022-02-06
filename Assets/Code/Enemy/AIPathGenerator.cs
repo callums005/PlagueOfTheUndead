@@ -4,65 +4,59 @@ using UnityEngine;
 
 public class AIPathGenerator : MonoBehaviour
 {
-    private int m_XPos;
-    private int m_ZPos;
     public GameObject Agent;
+    public GameObject AgentSpawn;
+    [Header("Check Settings")]
     public LayerMask InvalidSpawnLayers;
     public Transform Check;
 
-    public int MinRange;
-    public int MaxRange;
+    [Header("Distance Settings")]
+    public int RangeRadius;
+    public int MinDistance;
 
-    public bool isInObject;
+    private int m_ZPos;
+    private int m_XPos;
+    private bool isInObject;
 
     private void Start()
     {
-        m_XPos = Random.Range(MinRange, MaxRange);
-        m_ZPos = Random.Range(MinRange, MaxRange);
-        transform.position = new Vector3(m_XPos, 1, m_ZPos);
+        m_XPos = Random.Range(-RangeRadius, RangeRadius);
+        m_ZPos = Random.Range(-RangeRadius, RangeRadius);
+        transform.position = AgentSpawn.transform.position + new Vector3(m_XPos, 1, m_ZPos);
 
         isInObject = Physics.CheckSphere(Check.position, 0.2f, InvalidSpawnLayers);
 
-        while (isInObject)
+        while (isInObject || Vector3.Distance(transform.position, Agent.transform.position) <= 4)
         {
-            m_XPos = Random.Range(MinRange, MaxRange);
-            m_ZPos = Random.Range(MinRange, MaxRange);
-            transform.position = new Vector3(m_XPos, 1, m_ZPos);
+            m_XPos = Random.Range(-RangeRadius, RangeRadius);
+            m_ZPos = Random.Range(-RangeRadius, RangeRadius);
+            transform.position = AgentSpawn.transform.position + new Vector3(m_XPos, 1, m_ZPos);
             isInObject = Physics.CheckSphere(Check.position, 0.2f, InvalidSpawnLayers);
         }
 
     }
-
-    private void Update()
-    {
-        isInObject = Physics.CheckSphere(Check.position, 0.2f, InvalidSpawnLayers);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == Agent)
             StartCoroutine(ReachedTargetDelay());
     }
 
-    
     private IEnumerator ReachedTargetDelay()
     {
         yield return new WaitForSeconds(Agent.GetComponent<EnemyMovement>().AgentReachedPathTargetDelay);
 
-        m_XPos = Random.Range(MinRange, MaxRange);
-        m_ZPos = Random.Range(MinRange, MaxRange);
-        transform.position = new Vector3(m_XPos, 1, m_ZPos);
+        m_XPos = Random.Range(-RangeRadius, RangeRadius);
+        m_ZPos = Random.Range(-RangeRadius, RangeRadius);
+        transform.position = AgentSpawn.transform.position + new Vector3(m_XPos, 1, m_ZPos);
 
         isInObject = Physics.CheckSphere(Check.position, 0.2f, InvalidSpawnLayers);
 
-        while (isInObject)
+        while (isInObject || Vector3.Distance(transform.position, Agent.transform.position) <= 4)
         {
-            m_XPos = Random.Range(MinRange, MaxRange);
-            m_ZPos = Random.Range(MinRange, MaxRange);
-            transform.position = new Vector3(m_XPos, 1, m_ZPos);
+            m_XPos = Random.Range(-RangeRadius, RangeRadius);
+            m_ZPos = Random.Range(-RangeRadius, RangeRadius);
+            transform.position = AgentSpawn.transform.position + new Vector3(m_XPos, 1, m_ZPos);
             isInObject = Physics.CheckSphere(Check.position, 0.2f, InvalidSpawnLayers);
         }
     }
-
-    // VIDEO: https://www.youtube.com/watch?v=TL4XLomQl7U
 }

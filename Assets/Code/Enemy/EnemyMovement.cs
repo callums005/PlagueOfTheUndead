@@ -3,15 +3,30 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [Header("Agent Settings")]
+    public NavMeshAgent Agent;
     public float FollowRadius = 3f;
     public float AgentReachedPathTargetDelay = 2f;
 
+    [Header("Agent Targets")]
     public Transform Player;
     public Transform PathTarget;
-    public NavMeshAgent Agent;
+
+    [Header("Agent Spawn")]
+    public GameObject SpawnPoint;
+    public int SpawnRadius;
+
 
     private Vector3 m_Position;
- 
+
+    private void Start()
+    {
+        int x = Random.Range(-SpawnRadius, SpawnRadius);
+        int z = Random.Range(-SpawnRadius, SpawnRadius);
+
+        transform.position = SpawnPoint.transform.position + new Vector3(x, transform.position.y, z);
+    }
+
 
     private void Update()
     {
