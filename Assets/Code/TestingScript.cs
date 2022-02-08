@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class TestingScript : MonoBehaviour
 {
     public GameObject enemy;
+    public GameObject arrow;
 
     private void Update()
     {
@@ -11,6 +12,6 @@ public class TestingScript : MonoBehaviour
             return;
 
         if (InputSystem.GetDevice<Keyboard>().kKey.wasPressedThisFrame)
-            enemy.GetComponent<EnemyCombat>().Health = 0;
+            Instantiate(arrow);
     }
 }

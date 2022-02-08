@@ -20,10 +20,9 @@ public class Weapon : InventoryItem
         switch (wType)
         {
             case WeaponType.Blunt:
-
                 MayleeCollider[] colliders = iWorldObject.GetComponentsInChildren<MayleeCollider>();
 
-                MayleeColliderData colliderData = new MayleeColliderData(false, null);
+                MayleeColliderData colliderData = new(false, null);
 
                 foreach (MayleeCollider collider in colliders)
                 {

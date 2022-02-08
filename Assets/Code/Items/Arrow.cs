@@ -11,10 +11,12 @@ public class Arrow : MonoBehaviour
     private void Start()
     {
         m_Player = GameObject.FindGameObjectWithTag("Player");
+
+        transform.position = m_Player.transform.position;
     }
 
     private void Update()
     {
-        RB.AddForce(m_Player.transform.forward * Speed * Time.deltaTime, Force);
+        RB.AddForce(Speed * Time.deltaTime * m_Player.transform.forward, Force);
     }
 }

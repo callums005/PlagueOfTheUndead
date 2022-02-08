@@ -12,7 +12,7 @@ public class MayleeCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Enemy")
+        if (other.gameObject.CompareTag("Enemy"))
             return;
 
         HasCollided = true;
