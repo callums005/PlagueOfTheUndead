@@ -31,6 +31,7 @@ public class InventoryManager : MonoBehaviour
             SelectedItem = 0;
 
         SelectedItemObject = Instantiate(HUDItems[SelectedItem].iObject);
+        HUDItems[SelectedItem].iWorldObject = SelectedItemObject;
         uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
     }
 
@@ -74,6 +75,7 @@ public class InventoryManager : MonoBehaviour
                     {
                         Destroy(SelectedItemObject);
                         SelectedItemObject = Instantiate(HUDItems[slot].iObject);
+                        HUDItems[slot].iWorldObject = SelectedItemObject;
                     }
                 }
             }
@@ -82,6 +84,7 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         SelectedItemObject = Instantiate(HUDItems[SelectedItem].iObject);
+        HUDItems[SelectedItem].iWorldObject = SelectedItemObject;
         uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
     }
 }

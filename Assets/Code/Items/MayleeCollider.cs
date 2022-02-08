@@ -19,9 +19,9 @@ public class MayleeCollider : MonoBehaviour
         CollidedEnemy = other.gameObject;
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject != CollidedEnemy)
+        if (other.gameObject != CollidedEnemy)
             return;
 
         HasCollided = false;

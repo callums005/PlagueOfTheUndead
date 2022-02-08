@@ -8,6 +8,7 @@ public class InventoryItem : ScriptableObject
     public string iName;
     public Sprite iSprite;
     public GameObject iObject;
+    public GameObject iWorldObject;
     public CharacterType iCharacterType;
     public ItemType iType;
 

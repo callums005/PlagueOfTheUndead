@@ -17,12 +17,11 @@ public class Weapon : InventoryItem
 
     public void Attack1() 
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
         switch (wType)
         {
             case WeaponType.Blunt:
-                MayleeCollider[] colliders = iObject.GetComponents<MayleeCollider>();
+
+                MayleeCollider[] colliders = iWorldObject.GetComponentsInChildren<MayleeCollider>();
 
                 MayleeColliderData colliderData = new MayleeColliderData(false, null);
 
@@ -36,9 +35,6 @@ public class Weapon : InventoryItem
                 }
 
                 if (!colliderData.HasCollided)
-                    return;
-
-                if (Vector3.Distance(player.transform.position, colliderData.CollidedObject.transform.position) > wRange)
                     return;
 
                 colliderData.CollidedObject.GetComponent<EnemyCombat>().TakeDamage(wDamage);
