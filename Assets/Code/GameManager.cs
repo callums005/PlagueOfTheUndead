@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 public enum CharacterType { Any, Knight, Archer }
-
+public enum WeaponType { Blunt, LongRange }
 public static class GameManager
 {
     public static CharacterType CharType;

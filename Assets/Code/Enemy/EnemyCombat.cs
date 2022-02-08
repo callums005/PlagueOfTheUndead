@@ -14,6 +14,14 @@ public class EnemyCombat : MonoBehaviour
 
     private float m_NextAttackTime;
 
+    public void TakeDamage(double Amount)
+    {
+        if (Health == 0)
+            return;
+
+        Health -= Amount;
+    }
+
     private void Update()
     {
         IsEnemyDead();
@@ -26,6 +34,11 @@ public class EnemyCombat : MonoBehaviour
             Destroy(transform.parent.gameObject);
     }
 
+    /// <summary>
+    /// This function calculates how long it has been since the last attack, if it is greater than
+    /// the attack speed plus the time of the last attack then it will attack the player if in range and
+    /// reset the timer
+    /// </summary>
     private void Attack()
     {
         if (Time.time < m_NextAttackTime)

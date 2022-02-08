@@ -3,6 +3,10 @@ using Cinemachine;
 
 public class InputManager : MonoBehaviour
 {
+    /// <summary>
+    /// This class is responsible for handling player input using the new InputSystem Unity provides in the package manager.
+    /// </summary>
+
     private Controls m_Controls;
 
     [Header("Controls")]

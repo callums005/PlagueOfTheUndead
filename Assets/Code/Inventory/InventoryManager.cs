@@ -17,6 +17,10 @@ public class InventoryManager : MonoBehaviour
     [Space()]
     public UIManager uiManager;
 
+    /// <summary>
+    /// Switches weapon and creates gameobject in player hand depending on the item
+    /// </summary>
+
     public void SwitchWeapon()
     {
         Destroy(SelectedItemObject);
@@ -45,6 +49,12 @@ public class InventoryManager : MonoBehaviour
     {
         HUDItems[SelectedItem].Use(attack);
     }
+
+    /// <summary>
+    /// Sets item to the correct inventory slot
+    /// </summary>
+    /// <param name="item">InventoryItem: Item to add</param>
+    /// <param name="slot">int: Slot to add the item to</param>
 
     public void SetItem(InventoryItem item, int slot)
     {

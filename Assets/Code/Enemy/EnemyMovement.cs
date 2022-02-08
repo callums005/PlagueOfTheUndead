@@ -19,6 +19,9 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector3 m_Position;
 
+    /// <summary>
+    /// Spawns enemy at a random position within a radius of the spawn
+    /// </summary>
     private void Start()
     {
         int x = Random.Range(-SpawnRadius, SpawnRadius);
@@ -27,6 +30,16 @@ public class EnemyMovement : MonoBehaviour
         transform.position = SpawnPoint.transform.position + new Vector3(x, transform.position.y, z);
     }
 
+
+    /// <summary>
+    /// Moves the AI agent depending on coditions using the following algorith:
+    ///     - Calcualtes the distance between the agent and player
+    ///     - Checks if the player is within the FollowRadius, if so do the following:
+    ///         - Calculate what direction the agent should face to look at the player
+    ///         - Move the agent to the player's position
+    ///     - If the player is not within the Follow Radius, it will do the followingL
+    ///         - Move the agent to the PathTarget position
+    /// </summary>
 
     private void Update()
     {
