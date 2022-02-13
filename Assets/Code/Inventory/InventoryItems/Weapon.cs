@@ -7,25 +7,18 @@ public class Weapon : InventoryItem
     public float wRange;
     public WeaponType wType;
 
-    public override void Use(int attack)
-    {
-        if (attack == 1)
-            Attack1();
-        else if (attack == 2)
-            Attack2();
-    }
-
-    public void Attack1() 
+    public override void Use()
     {
         switch (wType)
         {
             case WeaponType.Blunt:
-                MayleeCollider[] colliders = iWorldObject.GetComponentsInChildren<MayleeCollider>();
+                MyleeCollider[] colliders = iWorldObject.GetComponentsInChildren<MyleeCollider>();
 
-                MayleeColliderData colliderData = new(false, null);
+                MyleeColliderData colliderData = new(false, null);
 
-                foreach (MayleeCollider collider in colliders)
+                foreach (MyleeCollider collider in colliders)
                 {
+
                     if (collider.GetColliderData().HasCollided)
                     {
                         colliderData.HasCollided = true;
@@ -37,15 +30,10 @@ public class Weapon : InventoryItem
                     return;
 
                 colliderData.CollidedObject.GetComponent<EnemyCombat>().TakeDamage(wDamage);
-                break;
+                break; 
             default:
                 Debug.LogError("Unimplemented Error: \"" + iName + "\" has no Attack1 implemented");
                 break;
         }
     }
-
-    public void Attack2()
-    {
-    }
-
 }

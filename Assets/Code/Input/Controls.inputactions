@@ -33,15 +33,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack2",
-                    "type": "Button",
-                    "id": "79171c10-f962-45c1-81cd-2eae8476f897",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "SwitchWeapon",
                     "type": "Button",
                     "id": "1b74afd4-1a5b-4fbf-b7e6-8546c5bdbe21",
@@ -226,28 +217,6 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "Jump/Use",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b9de6d8c-2627-4b57-a69d-4c739632094f",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Attack2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f8fb1f6f-7646-48fa-bc26-c03535eeeb91",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Attack2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

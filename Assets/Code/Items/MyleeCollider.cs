@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 
-public class MayleeCollider : MonoBehaviour
+public class MyleeCollider : MonoBehaviour
 {
     private bool HasCollided = false;
     private GameObject CollidedEnemy = null;
 
-    public MayleeColliderData GetColliderData()
+    public MyleeColliderData GetColliderData()
     {
-        return new MayleeColliderData(HasCollided, CollidedEnemy);
+        return new MyleeColliderData(HasCollided, CollidedEnemy);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (!other.gameObject.CompareTag("Enemy"))
             return;
 
         HasCollided = true;

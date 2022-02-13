@@ -46,9 +46,9 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void UseSelectedItem(int attack)
+    public void UseSelectedItem()
     {
-        HUDItems[SelectedItem].Use(attack);
+        HUDItems[SelectedItem].Use();
     }
 
     /// <summary>

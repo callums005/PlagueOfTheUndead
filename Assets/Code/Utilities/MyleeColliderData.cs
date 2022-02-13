@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class MayleeColliderData
+public class MyleeColliderData
 {
     public bool HasCollided;
     public GameObject CollidedObject;
 
-    public MayleeColliderData(bool hasCollided, GameObject collidedObject)
+    public MyleeColliderData(bool hasCollided, GameObject collidedObject)
     {
         HasCollided = hasCollided;
         CollidedObject = collidedObject;

@@ -55,15 +55,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Attack2"",
-                    ""type"": ""Button"",
-                    ""id"": ""79171c10-f962-45c1-81cd-2eae8476f897"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""SwitchWeapon"",
                     ""type"": ""Button"",
                     ""id"": ""1b74afd4-1a5b-4fbf-b7e6-8546c5bdbe21"",
@@ -248,28 +239,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Jump/Use"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b9de6d8c-2627-4b57-a69d-4c739632094f"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Attack2"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f8fb1f6f-7646-48fa-bc26-c03535eeeb91"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Attack2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -544,7 +513,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
         m_Player_JumpUse = m_Player.FindAction("Jump/Use", throwIfNotFound: true);
-        m_Player_Attack2 = m_Player.FindAction("Attack2", throwIfNotFound: true);
         m_Player_SwitchWeapon = m_Player.FindAction("SwitchWeapon", throwIfNotFound: true);
         m_Player_UseConsumable = m_Player.FindAction("UseConsumable", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
@@ -618,7 +586,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Camera;
     private readonly InputAction m_Player_JumpUse;
-    private readonly InputAction m_Player_Attack2;
     private readonly InputAction m_Player_SwitchWeapon;
     private readonly InputAction m_Player_UseConsumable;
     private readonly InputAction m_Player_Inventory;
@@ -632,7 +599,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputAction @JumpUse => m_Wrapper.m_Player_JumpUse;
-        public InputAction @Attack2 => m_Wrapper.m_Player_Attack2;
         public InputAction @SwitchWeapon => m_Wrapper.m_Player_SwitchWeapon;
         public InputAction @UseConsumable => m_Wrapper.m_Player_UseConsumable;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
@@ -657,9 +623,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @JumpUse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpUse;
                 @JumpUse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpUse;
                 @JumpUse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpUse;
-                @Attack2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack2;
-                @Attack2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack2;
-                @Attack2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack2;
                 @SwitchWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapon;
                 @SwitchWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapon;
                 @SwitchWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapon;
@@ -691,9 +654,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @JumpUse.started += instance.OnJumpUse;
                 @JumpUse.performed += instance.OnJumpUse;
                 @JumpUse.canceled += instance.OnJumpUse;
-                @Attack2.started += instance.OnAttack2;
-                @Attack2.performed += instance.OnAttack2;
-                @Attack2.canceled += instance.OnAttack2;
                 @SwitchWeapon.started += instance.OnSwitchWeapon;
                 @SwitchWeapon.performed += instance.OnSwitchWeapon;
                 @SwitchWeapon.canceled += instance.OnSwitchWeapon;
@@ -788,7 +748,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnJumpUse(InputAction.CallbackContext context);
-        void OnAttack2(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
         void OnUseConsumable(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);

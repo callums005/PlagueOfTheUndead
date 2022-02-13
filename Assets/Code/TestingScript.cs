@@ -12,6 +12,9 @@ public class TestingScript : MonoBehaviour
             return;
 
         if (InputSystem.GetDevice<Keyboard>().kKey.wasPressedThisFrame)
+        {
             Instantiate(arrow);
+            //a.transform.Rotate(0, GameObject.FindGameObjectWithTag("Player").transform.rotation.y, 0);
+        }
     }
 }

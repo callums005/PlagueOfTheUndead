@@ -14,12 +14,13 @@ public class EnemyCombat : MonoBehaviour
 
     private float m_NextAttackTime;
 
-    public void TakeDamage(double Amount)
+    public bool TakeDamage(double Amount)
     {
         if (Health == 0)
-            return;
+            return true;
 
         Health -= Amount;
+        return false;
     }
 
     private void Update()
