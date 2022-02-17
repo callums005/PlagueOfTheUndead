@@ -19,11 +19,12 @@ public class EnemyCombat : MonoBehaviour
     }
     public bool TakeDamage(double Amount)
     {
-        if (Health == 0)
-            return true;
-
         Health -= Amount;
-        return false;
+
+        if (Health <= 0)
+            return true;
+        else
+            return false;
     }
 
     private void Update()

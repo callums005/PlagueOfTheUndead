@@ -35,7 +35,11 @@ public class SpellCollider : MonoBehaviour
             return;
 
         if (other.gameObject.CompareTag("Enemy"))
-            other.gameObject.GetComponent<EnemyCombat>().TakeDamage(m_Damage);
+        {
+            if (other.gameObject.GetComponent<EnemyCombat>().TakeDamage(m_Damage))
+                GameManager.AddXP(5);
+
+        }
 
         Destroy(transform.parent.gameObject);
     }

@@ -14,11 +14,19 @@ public class Crosshair : MonoBehaviour
     {
         Weapon weapon = InventoryManager.HUDItems[InventoryManager.SelectedItem].GetWeapon();
 
-        nearestEnemy = CombatManager.GetNearestEnemy().transform.Find("Agent").gameObject;
+        nearestEnemy = CombatManager.GetNearestEnemy();
+
+        if (nearestEnemy == null)
+        {
+            CrosshairImage.enabled = false;
+            return;
+        }
+
+        nearestEnemy = nearestEnemy.transform.Find("Agent").gameObject;
+
 
         if (Vector3.Distance(nearestEnemy.transform.position, Player.transform.position) <= weapon.wCrosshairRange)
         {
-            Debug.Log("True");
             transform.position = nearestEnemy.transform.position + new Vector3(0, 2, 0);
             CrosshairImage.enabled = true;
         }

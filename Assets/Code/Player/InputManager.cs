@@ -22,6 +22,7 @@ public class InputManager : MonoBehaviour
     private Vector2 m_MoveValue;
     private Vector2 m_CameraValue;
     private bool m_IsJumping;
+    private bool m_Using;
 
     private void Awake()
     {
@@ -35,12 +36,15 @@ public class InputManager : MonoBehaviour
             m_Controls.Player.Camera.performed += ctx => m_CameraValue = ctx.ReadValue<Vector2>();
             m_Controls.Player.Camera.canceled += ctx => m_CameraValue = Vector2.zero;
 
-            m_Controls.Player.JumpUse.performed += ctx => SetJumpValue(true);
-            m_Controls.Player.JumpUse.canceled += ctx => SetJumpValue(false);
+            m_Controls.Player.Jump.performed += ctx => SetJumpValue(true);
+            m_Controls.Player.Jump.canceled += ctx => SetJumpValue(false);
 
             m_Controls.Player.SwitchWeapon.performed += ctx => InventoryManager.SwitchWeapon();
             m_Controls.Player.UseConsumable.performed += ctx => InventoryManager.UseConsumable();
-            m_Controls.Player.Attack1.performed += ctx => InventoryManager.UseSelectedItem();
+            m_Controls.Player.Attack.performed += ctx => InventoryManager.UseSelectedItem();
+
+            m_Controls.Player.Use.performed += ctx => SetUseValue(true);
+            m_Controls.Player.Use.canceled += ctx => SetUseValue(false);
         }
         else if (Menu)
         {
@@ -62,6 +66,16 @@ public class InputManager : MonoBehaviour
     public bool GetJumpingState()
     {
         return m_IsJumping;
+    }
+
+    private void SetUseValue(bool value)
+    {
+        m_Using = value;
+    }
+
+    public bool GetUsingState()
+    {
+        return m_Using;
     }
 
     public Vector2 GetMoveValue()
