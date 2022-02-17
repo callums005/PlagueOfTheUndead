@@ -13,7 +13,10 @@ public class EnemyCombat : MonoBehaviour
     public int AttackDamage;
 
     private float m_NextAttackTime;
-
+    private void OnEnable()
+    {
+        m_NextAttackTime = Time.time;
+    }
     public bool TakeDamage(double Amount)
     {
         if (Health == 0)

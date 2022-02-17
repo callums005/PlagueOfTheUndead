@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 
-public enum CharacterType { Any, Knight, Archer }
-public enum WeaponType { Blunt, LongRange }
+public enum CharacterType { Any, Knight, SpellMajor }
+public enum WeaponType { Mylee, Spell }
 public static class GameManager
 {
     public static CharacterType CharType;

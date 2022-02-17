@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a759025803fe274c8beba01af314df2, type: 3}
-  m_Name: Sword
+  m_Name: Hammer
   m_EditorClassIdentifier: 
-  iName: Sword
+  iName: Hammer
   iSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  iObject: {fileID: 6087593187987603435, guid: 6ee03dad2c95899419f83d079d9da909, type: 3}
+  iObject: {fileID: 6438966611294635532, guid: 3f211e51c9dad6f4f8d7efaa35f2ecd8, type: 3}
   iWorldObject: {fileID: 0}
   iCharacterType: 0
   iType: 0
-  wDamage: 50
-  wRange: 0
+  wDamage: 0
+  wAttackSpeed: 0
+  wCrosshairRange: 3
+  wDestroyProjectileTime: 0
   wType: 0
+  wProjectile: {fileID: 0}

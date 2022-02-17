@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a759025803fe274c8beba01af314df2, type: 3}
+  m_Name: FireStave
+  m_EditorClassIdentifier: 
+  iName: FireStave
+  iSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  iObject: {fileID: 6087593187987603435, guid: 083636cb786ff824e824c0cc894fadd2, type: 3}
+  iWorldObject: {fileID: 0}
+  iCharacterType: 2
+  iType: 0
+  wDamage: 50
+  wAttackSpeed: 2
+  wCrosshairRange: 5
+  wDestroyProjectileTime: 1
+  wType: 1
+  wProjectile: {fileID: 5494564033880926926, guid: 12aaa5dd556d1da4e8d2a03e30b03fe0, type: 3}

@@ -8,6 +8,7 @@ TagManager:
   - Hand
   - EnemyHand
   - Enemy
+  - ProjectileSpawn
   layers:
   - Default
   - TransparentFX

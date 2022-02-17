@@ -17,8 +17,6 @@ public class EnemyMovement : MonoBehaviour
     public int SpawnRadius;
 
 
-    private Vector3 m_Position;
-
     /// <summary>
     /// Spawns enemy at a random position within a radius of the spawn
     /// </summary>

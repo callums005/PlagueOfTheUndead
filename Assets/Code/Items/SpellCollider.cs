@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SpellCollider : MonoBehaviour
 {
-    public Rigidbody RB;
-
     private int m_Damage;
+
+    /// <summary>
+    /// This function gets the damage from the weapon that it was spawned by
+    /// </summary>
     private void Start()
     {
         InventoryManager manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<InventoryManager>();
@@ -19,10 +21,10 @@ public class SpellCollider : MonoBehaviour
     }
 
     /// <summary>
-    /// Unlike the mylee collider, the arrow collider damages the enemy independent of if the weapon was used.
-    /// When the weapon is used it will fire an arrow, after that there is no link between the arrow and the weapon.
-    /// For this reason, the arrow's hit detection and hit damage code must be independent of the arrow.
-    /// When the arrow collides with an enemy, the enemy will take damage and the arrow will be deleted
+    /// Unlike the mylee collider, the spell collider damages the enemy independent of if the weapon was used.
+    /// When the weapon is used it will spawn a spell, after that there is no link between the spell and the weapon.
+    /// For this reason, the spell's hit detection and hit damage code must be independent of the weapon.
+    /// When the spell collides with an enemy, the enemy will take damage and the spell will be deleted
     /// 
     /// If the arrow hits anything, it will be deleted after a few seconds
     /// </summary>
@@ -34,10 +36,6 @@ public class SpellCollider : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
             other.gameObject.GetComponent<EnemyCombat>().TakeDamage(m_Damage);
-
-        RB.velocity = Vector3.zero;
-        RB.angularVelocity = Vector3.zero;
-        RB.isKinematic = true;
 
         Destroy(transform.parent.gameObject);
     }

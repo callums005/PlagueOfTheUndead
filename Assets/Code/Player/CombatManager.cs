@@ -15,6 +15,9 @@ public class CombatManager : MonoBehaviour
     {
         GameObject[] agents = GameObject.FindGameObjectsWithTag("Enemy");
 
+        if (agents == null || agents.Length == 0)
+            return null;
+
         GameObject nearest = agents[0];
 
         for (int i = 1; i < agents.Length; i++)

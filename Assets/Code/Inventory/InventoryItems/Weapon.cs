@@ -4,8 +4,17 @@
 public class Weapon : InventoryItem
 {
     public int wDamage;
-    public float wRange;
+    public float wAttackSpeed;
+    public float wCrosshairRange;
+    public float wDestroyProjectileTime;
     public WeaponType wType;
+    public GameObject wProjectile;
+
+    private float m_NextAttackTime;
+    private void OnEnable()
+    {
+        m_NextAttackTime = Time.time;
+    }
 
     public override Weapon GetWeapon()
     {
@@ -14,9 +23,19 @@ public class Weapon : InventoryItem
 
     public override void Use()
     {
+        if (Time.time < m_NextAttackTime)
+            return;
+
         switch (wType)
         {
-            case WeaponType.Blunt:
+            case WeaponType.Mylee:
+                /*
+                 This selection of code gets all of the mylee colliders from the weapons object,
+                 then checks if any of the mylee colliders has collided, if so it will set colliderData to true
+                 with the object it collided with.
+                 If the weapon has collided with an enemy, then the enemy will take damage.
+                */
+
                 MyleeCollider[] colliders = iWorldObject.GetComponentsInChildren<MyleeCollider>();
 
                 MyleeColliderData colliderData = new(false, null);
@@ -34,10 +53,15 @@ public class Weapon : InventoryItem
                 if (!colliderData.HasCollided)
                     return;
 
+                m_NextAttackTime = Time.time + wAttackSpeed;
                 colliderData.CollidedObject.GetComponent<EnemyCombat>().TakeDamage(wDamage);
-                break; 
+                break;
+            case WeaponType.Spell:
+                m_NextAttackTime = Time.time + wAttackSpeed;
+                Instantiate(wProjectile, GameObject.FindGameObjectWithTag("ProjectileSpawn").transform);
+                break;
             default:
-                Debug.LogError("Unimplemented Error: \"" + iName + "\" has no Attack1 implemented");
+                Debug.LogError("Unimplemented Error: \"" + iName + "\" has no Attack implemented");
                 break;
         }
     }

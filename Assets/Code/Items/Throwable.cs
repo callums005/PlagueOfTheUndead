@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Arrow : MonoBehaviour
+public class Throwable : MonoBehaviour
 {
     public Rigidbody RB;
     public float FirePower;
@@ -8,12 +8,15 @@ public class Arrow : MonoBehaviour
 
     private GameObject m_PlayerHand;
 
+
+    /// <summary>
+    /// Spawns an object at the players hand, adds a forward force to move the object forward.
+    /// </summary>
     private void Start()
     {
         m_PlayerHand = GameObject.FindGameObjectWithTag("Hand");
 
         transform.rotation = new Quaternion(m_PlayerHand.transform.rotation.x, m_PlayerHand.transform.rotation.y, m_PlayerHand.transform.rotation.z, m_PlayerHand.transform.rotation.w);
-        transform.position = m_PlayerHand.transform.position;
         RB.isKinematic = false;
         RB.AddForce(m_PlayerHand.transform.TransformDirection(Vector3.forward * FirePower), ForceMode.Impulse);
         RB.AddTorque(transform.right * Torque);
