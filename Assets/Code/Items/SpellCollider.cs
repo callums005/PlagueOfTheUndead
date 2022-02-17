@@ -2,10 +2,21 @@
 using System.Collections;
 using UnityEngine;
 
-public class ArrowCollider : MonoBehaviour
+public class SpellCollider : MonoBehaviour
 {
-    public Weapon Item;
     public Rigidbody RB;
+
+    private int m_Damage;
+    private void Start()
+    {
+        InventoryManager manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<InventoryManager>();
+
+        if (manager == null)
+            return;
+
+        Weapon selectedItem = manager.HUDItems[manager.SelectedItem].GetWeapon();
+        m_Damage = selectedItem.wDamage;
+    }
 
     /// <summary>
     /// Unlike the mylee collider, the arrow collider damages the enemy independent of if the weapon was used.
@@ -22,20 +33,12 @@ public class ArrowCollider : MonoBehaviour
             return;
 
         if (other.gameObject.CompareTag("Enemy"))
-            other.gameObject.GetComponent<EnemyCombat>().TakeDamage(Item.wDamage);
+            other.gameObject.GetComponent<EnemyCombat>().TakeDamage(m_Damage);
 
         RB.velocity = Vector3.zero;
         RB.angularVelocity = Vector3.zero;
         RB.isKinematic = true;
-        //transform.parent.SetParent(other.transform);
 
         Destroy(transform.parent.gameObject);
-    }
-
-    private IEnumerator DeleteArrow()
-    {
-        yield return new WaitForSeconds(1);
-
-        
     }
 }

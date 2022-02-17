@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3856962592118439022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.7}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5647197445537418650}
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3856962592118439022}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &7407769586830652033
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 815364933345521899}
   - component: {fileID: 3296461956479117260}
   m_Layer: 0
-  m_Name: Arrow
+  m_Name: Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,8 +140,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5494564033880926926}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 0.25
+  m_Drag: 0.05
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -161,10 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RB: {fileID: 815364933345521899}
-  FirePower: 30
-  Force: 1
+  FirePower: 15
   Torque: 0
-  Range: 10
 --- !u!1 &8753530217039182609
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +175,7 @@ GameObject:
   - component: {fileID: 2999966981411058208}
   - component: {fileID: 1484494267222776499}
   m_Layer: 0
-  m_Name: ArrowCollider
+  m_Name: SpellCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,8 +189,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8753530217039182609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.377}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5647197445537418650}

@@ -7,6 +7,11 @@ public class Weapon : InventoryItem
     public float wRange;
     public WeaponType wType;
 
+    public override Weapon GetWeapon()
+    {
+        return this;
+    }
+
     public override void Use()
     {
         switch (wType)
