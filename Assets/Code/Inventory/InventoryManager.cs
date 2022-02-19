@@ -17,10 +17,13 @@ public class InventoryManager : MonoBehaviour
     [Space()]
     public UIManager uiManager;
 
+    [Header("List of Items")]
+    public Weapon[] Weapons;
+    public Consumable[] Consumables;
+
     /// <summary>
     /// Switches weapon and creates gameobject in player hand depending on the item
     /// </summary>
-
     public void SwitchWeapon()
     {
         Destroy(SelectedItemObject);
@@ -57,30 +60,36 @@ public class InventoryManager : MonoBehaviour
     /// <param name="item">InventoryItem: Item to add</param>
     /// <param name="slot">int: Slot to add the item to</param>
 
-    public void SetItem(InventoryItem item, int slot)
+    public void SetWeapon(int item, int slot)
     {
-        if (item != null)
-        {
-            if (item.iCharacterType == GameManager.CharType || item.iCharacterType == CharacterType.Any)
-            {
-                if (slot == 2 && item.iType == ItemType.Consumable)
-                    HUDItems[slot] = item;
-                if (slot == 3 && item.iType == ItemType.Shield) throw new System.NotImplementedException();
-                // TODO: Shield
-                if ((slot == 0 || slot == 1) && item.iType == ItemType.Weapon)
-                {
-                    HUDItems[slot] = item;
+        if (Weapons[item].iCharacterType != GameManager.CharType && Weapons[item].iCharacterType != CharacterType.Any)
+            return;
 
-                    if (slot == SelectedItem)
-                    {
-                        Destroy(SelectedItemObject);
-                        SelectedItemObject = Instantiate(HUDItems[slot].iObject);
-                        HUDItems[slot].iWorldObject = SelectedItemObject;
-                    }
-                }
-            }
+        if (slot != 0 && slot != 1)
+            return;
+
+        HUDItems[slot] = Weapons[item];
+
+        if (slot == SelectedItem)
+        {
+            Destroy(SelectedItemObject);
+            SelectedItemObject = Instantiate(HUDItems[slot].iObject);
+            HUDItems[slot].iWorldObject = SelectedItemObject;
         }
+
+        uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
     }
+
+    public void SetConsumable(int item)
+    {
+        if (Consumables[item].iCharacterType != GameManager.CharType && Consumables[item].iCharacterType != CharacterType.Any)
+            return;
+
+        HUDItems[2] = Consumables[item];
+
+        uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
+    }
+
     private void Start()
     {
         SelectedItemObject = Instantiate(HUDItems[SelectedItem].iObject);

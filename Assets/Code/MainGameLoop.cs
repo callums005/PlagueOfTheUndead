@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainGameLoop : MonoBehaviour
 {
@@ -12,23 +13,14 @@ public class MainGameLoop : MonoBehaviour
 
     void Start()
     {
-        LockCursor();
+        if (SceneManager.GetActiveScene().name == "GameOver")
+            GameManager.SetCursor(LockMode.Unlock);
+        else
+            GameManager.SetCursor(LockMode.Lock);
     }
 
     void Update()
     {
         
-    }
-
-    public void LockCursor()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
-    public void UnlockCursor()
-    {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
     }
 }

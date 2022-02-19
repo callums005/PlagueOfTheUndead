@@ -54,6 +54,12 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.CanMoveCamera)
+            return;
+
+        if (Menu)
+            return;
+
         FreeLookCamera.m_XAxis.m_InputAxisValue = m_CameraValue.x;
         FreeLookCamera.m_YAxis.m_InputAxisValue = m_CameraValue.y;
     }

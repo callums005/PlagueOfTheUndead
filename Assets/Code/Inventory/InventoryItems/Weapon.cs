@@ -23,6 +23,9 @@ public class Weapon : InventoryItem
 
     public override void Use()
     {
+        if (!GameManager.CanUseWeapon)
+            return;
+
         if (Time.time < m_NextAttackTime)
             return;
 
@@ -62,7 +65,7 @@ public class Weapon : InventoryItem
                 Instantiate(wProjectile, GameObject.FindGameObjectWithTag("ProjectileSpawn").transform);
                 break;
             default:
-                Debug.LogError("Unimplemented Error: \"" + iName + "\" has no Attack implemented");
+                Debug.LogError("Unimplemented Error: \"" + wType + "\" not implemented");
                 break;
         }
     }

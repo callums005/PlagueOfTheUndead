@@ -21,13 +21,56 @@ public class UIManager : MonoBehaviour
     public Image[] HUDBackgrounds = new Image[3];
     public Image[] ItemImages = new Image[3];
 
+    [Header("Consumable Reward Popup")]
+    public InventoryManager invManager;
+    public GameObject CR_Popup;
+    public TMPro.TMP_Text CR_PopupText;
+    public Image CR_Icon;
+
+    private int? consumableReward = null;
+
+
     private decimal m_HealthBuffer = GameManager.GetHealth();
     private readonly decimal m_HealthBufferAmount = 0.5m;
 
     private decimal m_XPBuffer;
     private readonly decimal m_XPBufferAmount = 0.2m;
 
-    // Update is called once per frame
+    public void ShowConsumableRewardPopup()
+    {
+        consumableReward = Random.Range(0, invManager.Consumables.Length);
+
+        if (consumableReward == null)
+            return;
+
+        CR_PopupText.SetText(invManager.Consumables[(int)consumableReward].iName);
+        CR_Icon.sprite = invManager.Consumables[(int)consumableReward].iSprite;
+
+        CR_Popup.SetActive(true);
+        GameManager.SetCursor(LockMode.Confined);
+        GameManager.CanMoveCamera = false;
+        GameManager.CanUseWeapon = false;
+    }
+
+    public void CRYes()
+    {
+        if (consumableReward == null)
+            return;
+
+        invManager.SetConsumable((int)consumableReward);
+        CRNo();
+    }
+
+    public void CRNo()
+    {
+        CR_Popup.SetActive(false);
+        CR_PopupText.SetText("");
+        CR_Icon.sprite = null;
+        GameManager.SetCursor(LockMode.Lock);
+        GameManager.CanMoveCamera = true;
+        GameManager.CanUseWeapon = true;
+    }
+
     void Update()
     {
         // Currency
