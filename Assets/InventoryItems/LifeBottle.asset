@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db3e21f92c54b14e94fc152c4c7e80e, type: 3}
   m_Name: LifeBottle
   m_EditorClassIdentifier: 
-  iName: LifeBottle
+  iName: Life Bottle
   iSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   iObject: {fileID: 0}
   iWorldObject: {fileID: 0}
