@@ -8,7 +8,7 @@ public class EnemyCombat : MonoBehaviour
     public double Health;
 
     [Header("Attack Settings")]
-    public int AttackRange;
+    public float AttackRange;
     public int AttackSpeed;
     public int AttackDamage;
 

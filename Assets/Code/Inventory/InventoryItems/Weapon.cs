@@ -53,7 +53,7 @@ public class Weapon : InventoryItem
                     }
                 }
 
-                if (!colliderData.HasCollided)
+                if (!colliderData.HasCollided || !colliderData.CollidedObject)
                     return;
 
                 m_NextAttackTime = Time.time + wAttackSpeed;

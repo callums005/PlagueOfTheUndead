@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1377,7 +1377,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7757353, y: 1}
+    m_SensorSize: {x: 1.7772021, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1393,7 +1393,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350693885}
-  m_LocalRotation: {x: 0.22975291, y: 0.000000018722702, z: -0.00000000441983, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.000000018722702, z: 0.00000000441983, w: 0.973249}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1950,19 +1950,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4043672220748846887, guid: fc8fc94aee2948b42acbf9b83e0ff95f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9238795
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 4043672220748846887, guid: fc8fc94aee2948b42acbf9b83e0ff95f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4043672220748846887, guid: fc8fc94aee2948b42acbf9b83e0ff95f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.3826837
+      value: -0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 4043672220748846887, guid: fc8fc94aee2948b42acbf9b83e0ff95f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4043672220748846887, guid: fc8fc94aee2948b42acbf9b83e0ff95f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2931,7 +2931,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7757353, y: 1}
+    m_SensorSize: {x: 1.7772021, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3480,7 +3480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrencyText: {fileID: 216900243}
   HealthSlider: {fileID: 886939109}
-  HealthBarFill: {fileID: 0}
+  HealthBarFill: {fileID: 2147357504}
   HealthBarGradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
@@ -4069,7 +4069,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7757353, y: 1}
+    m_SensorSize: {x: 1.7772021, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4573,7 +4573,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7757353, y: 1}
+    m_SensorSize: {x: 1.7772021, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5382,7 +5382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HUDItems:
-  - {fileID: 11400000, guid: 402fe754fb825534b970452828b7fc32, type: 2}
+  - {fileID: 11400000, guid: c5fed6c0fcbeb4845aa8b4944de9eb44, type: 2}
   - {fileID: 11400000, guid: 20f570f7062cb7140ae009215b6af671, type: 2}
   - {fileID: 11400000, guid: e8f828df747957d40ba5a731b01a6859, type: 2}
   SelectedItem: 0
@@ -5645,7 +5645,7 @@ PrefabInstance:
       objectReference: {fileID: 489298458}
     - target: {fileID: 1324520492500343165, guid: fcc66c894ef788a4487604a20a81bff0, type: 3}
       propertyPath: AttackRange
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1324520492500343165, guid: fcc66c894ef788a4487604a20a81bff0, type: 3}
       propertyPath: AttackSpeed
