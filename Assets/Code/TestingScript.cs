@@ -3,11 +3,14 @@ using UnityEngine.InputSystem;
 
 public class TestingScript : MonoBehaviour
 {
-    public GameObject enemy;
-
     private void Update()
     {
-        if (enemy == null)
-            return;
+        if (InputSystem.GetDevice<Keyboard>().tKey.wasPressedThisFrame)
+        {
+            if (GameManager.CharType == CharacterType.Knight)
+                GameManager.CharType = CharacterType.Mage;
+            else
+                GameManager.CharType = CharacterType.Knight;
+        }
     }
 }

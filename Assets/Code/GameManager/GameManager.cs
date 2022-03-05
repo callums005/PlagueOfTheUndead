@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum CharacterType { Any, Knight, SpellMajor }
+public enum CharacterType { Any, Knight, Mage }
 public enum WeaponType { Mylee, Spell }
 public enum ConsumableType { Healing, LifeBottle, Rage }
 
@@ -28,7 +28,7 @@ public static class GameManager
         }
     }
     
-    public static CharacterType CharType;
+    public static CharacterType CharType = CharacterType.Knight;
     public static bool CanUseWeapon = true;
     public static bool CanMoveCamera = true;
 
