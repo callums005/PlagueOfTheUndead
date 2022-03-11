@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3157387718058119563}
   - component: {fileID: 3157387718058119564}
   - component: {fileID: 1324520492500343165}
+  - component: {fileID: 4360724702936536936}
   m_Layer: 9
   m_Name: Agent
   m_TagString: Enemy
@@ -205,11 +206,109 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29ea3dda7b244345b158714f6c3b52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Source: {fileID: 4360724702936536936}
   Player: {fileID: 0}
-  Health: 0
-  AttackRange: 0
-  AttackSpeed: 0
-  AttackDamage: 0
+  EnemyGFX: {fileID: 2777520524445762001}
+  Health: 40
+  AttackRange: 1
+  AttackSpeed: 2
+  AttackDamage: 25
+--- !u!82 &4360724702936536936
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3157387718058119559}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 183dd19d364000543939a512944fadf1, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 5901f6f7bc1b6ef41add3ae62e919f4a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3157387718669139954
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3157387719323325405}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -587,6 +686,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d603d648150f23146a739f3d9fde4646, type: 3}
+--- !u!1 &2777520524445762001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d603d648150f23146a739f3d9fde4646, type: 3}
+  m_PrefabInstance: {fileID: 3047483266991881344}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3296754361371335531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d603d648150f23146a739f3d9fde4646, type: 3}

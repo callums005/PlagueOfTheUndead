@@ -2,7 +2,8 @@
     "name": "Enemy.Assemb",
     "rootNamespace": "",
     "references": [
-        "GameManager.Assemb"
+        "GameManager.Assemb",
+        "Sound.Assemb"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

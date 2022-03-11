@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class EnemyCombat : MonoBehaviour
+public class EnemyCombat : AudioInterface
 {
+    [Space()]
     public GameObject Player;
+    public GameObject EnemyGFX;
 
     [Header("Enemy Stats")]
     public double Health;
@@ -12,11 +14,14 @@ public class EnemyCombat : MonoBehaviour
     public int AttackSpeed;
     public int AttackDamage;
 
+    private bool DeathSoundDebouce = false;
+
     private float m_NextAttackTime;
     private void OnEnable()
     {
         m_NextAttackTime = Time.time;
     }
+
     public bool TakeDamage(double Amount)
     {
         Health -= Amount;
@@ -29,14 +34,28 @@ public class EnemyCombat : MonoBehaviour
 
     private void Update()
     {
-        IsEnemyDead();
-        Attack(); 
+        if (!IsEnemyDead())
+            Attack(); 
     }
 
-    private void IsEnemyDead()
+    private bool IsEnemyDead()
     {
         if (Health <= 0)
-            Destroy(transform.parent.gameObject);
+        {
+            EnemyGFX.SetActive(false);
+            
+            if (!DeathSoundDebouce)
+            {
+                PlayAudio();
+                DeathSoundDebouce = true;
+            }
+
+            Destroy(transform.parent.gameObject, Source.clip.length);
+
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>

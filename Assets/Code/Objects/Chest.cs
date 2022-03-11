@@ -2,29 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+public class Chest : Interactable
 {
-    public InputManager inpManager;
     public UIManager uiManager;
-    public GameObject Player;
 
-    public float Radius;
 
     private bool m_Debounce = false;
 
     private void Update()
     {
-        if (!inpManager.GetUsingState())
-            return;
-
-        if (m_Debounce)
-            return;
-
-        if (Vector3.Distance(Player.transform.position, transform.position) > Radius)
-            return;
+        if (m_Debounce) return;
+        if (!IsInRange()) return;
 
         m_Debounce = true;
-
 
         GenerateCurrencyReward();
         GenerateConsumableReward();
