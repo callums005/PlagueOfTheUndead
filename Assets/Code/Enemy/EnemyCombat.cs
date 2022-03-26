@@ -5,6 +5,7 @@ public class EnemyCombat : AudioInterface
     [Space()]
     public GameObject Player;
     public GameObject EnemyGFX;
+    public EnemyAnimationManager AnimationManager;
 
     [Header("Enemy Stats")]
     public double Health;
@@ -70,8 +71,15 @@ public class EnemyCombat : AudioInterface
         if (Vector3.Distance(transform.position, Player.transform.position) > AttackRange)
             return;
 
+        AnimationManager.AttackAnimation(true);
         m_NextAttackTime = Time.time + AttackSpeed;
         // TODO: Attack
         GameManager.AmendHealth(AttackDamage, '-');
+        Invoke("EndAttack", AttackSpeed);
+    }
+
+    private void EndAttack()
+    {
+        AnimationManager.AttackAnimation(false);
     }
 }

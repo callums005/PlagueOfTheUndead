@@ -50,6 +50,11 @@ public static class GameManager
             Debug.LogError("Invalid sign [AmendCurrency(int amount, char sign)");
     }
 
+    public static void SetCurrency(int amount)
+    {
+        Currency = amount;
+    }
+
     public static decimal GetXP() { return XP; }
 
     public static void AddXP(decimal amount)

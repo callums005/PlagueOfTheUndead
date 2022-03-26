@@ -21,8 +21,8 @@ TagManager:
   - PathTarget
   - Enemy
   - Arrow
-  - 
-  - 
+  - Object
+  - JumpableObject
   - 
   - 
   - 
