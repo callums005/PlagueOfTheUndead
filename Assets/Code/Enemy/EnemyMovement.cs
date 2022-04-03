@@ -3,6 +3,8 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public EnemyAnimationManager AnimationManager;
+
     [Header("Agent Settings")]
     public NavMeshAgent Agent;
     public float FollowRadius = 3f;
@@ -58,10 +60,6 @@ public class EnemyMovement : MonoBehaviour
         {
             if (Agent.transform.position != PathTarget.position)
             {
-                //Vector3 lookDirection = (PathTarget.position - transform.position).normalized;
-                //Quaternion lookRotation = Quaternion.LookRotation(new Vector3(lookDirection.x, 0, lookDirection.z));
-                //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-
                 Agent.SetDestination(PathTarget.position);
             }
         }

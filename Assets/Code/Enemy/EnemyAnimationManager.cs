@@ -8,7 +8,11 @@ public class EnemyAnimationManager : MonoBehaviour
 
     public void AttackAnimation(bool isAttack)
     {
-        Debug.Log("Setting state: " + isAttack);
         _Animator.SetBool("Attack", isAttack);
+    }
+
+    public void WalkAnimation(bool isRunning)
+    {
+        _Animator.SetBool("Walking", isRunning);
     }
 }

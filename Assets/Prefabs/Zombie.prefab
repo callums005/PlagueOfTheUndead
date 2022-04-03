@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d298ea055ee382549a64cce819cc214b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationManager: {fileID: 8731147003207358064}
   Agent: {fileID: 3157387718058119561}
   FollowRadius: 16
   AgentReachedPathTargetDelay: 1
