@@ -13,7 +13,7 @@ public class MainGameLoop : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == "GameOver")
+        if (SceneManager.GetActiveScene().name == "GameOver" || SceneManager.GetActiveScene().name == "Load" || SceneManager.GetActiveScene().name == "Shop")
             GameManager.SetCursor(LockMode.Unlock);
         else
             GameManager.SetCursor(LockMode.Lock);

@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,8 +33,9 @@ public static class GameManager
     public static CharacterType CharType = CharacterType.Knight;
     public static bool CanUseWeapon = true;
     public static bool CanMoveCamera = true;
+    public static List<string> PurchasedItems = new List<string>();
 
-    private static int Currency = 0;
+    private static int Currency = 10000;
     private static readonly decimal  MaxHealth = 100;
     private static decimal Health = 100;
     private static decimal XP = 0;
@@ -47,7 +50,7 @@ public static class GameManager
             if (Currency - amount >= 0)
                 Currency -= amount;
         else
-            Debug.LogError("Invalid sign [AmendCurrency(int amount, char sign)");
+            Debug.LogError("Invalid sign [AmendCurrency(int amount, char sign)]");
     }
 
     public static void SetCurrency(int amount)
@@ -82,7 +85,7 @@ public static class GameManager
             else
                 Health = 0;
         else
-            Debug.LogError("Invalid sign [AmendHealth(decimal amount, char sign)");
+            Debug.LogError("Invalid sign [AmendHealth(decimal amount, char sign)]");
 
         if (Health <= 0)
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);

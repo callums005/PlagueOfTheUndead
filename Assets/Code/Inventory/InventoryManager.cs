@@ -33,9 +33,12 @@ public class InventoryManager : MonoBehaviour
         else if (SelectedItem == 1)
             SelectedItem = 0;
 
-        SelectedItemObject = Instantiate(HUDItems[SelectedItem].iObject);
-        HUDItems[SelectedItem].iWorldObject = SelectedItemObject;
-        uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
+        if (HUDItems[SelectedItem] != null)
+        {
+            SelectedItemObject = Instantiate(HUDItems[SelectedItem].iObject);
+            HUDItems[SelectedItem].iWorldObject = SelectedItemObject;
+            uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
+        }
     }
 
     public void UseConsumable()
@@ -51,7 +54,8 @@ public class InventoryManager : MonoBehaviour
 
     public void UseSelectedItem()
     {
-        HUDItems[SelectedItem].Use();
+        if (HUDItems[SelectedItem] != null)
+            HUDItems[SelectedItem].Use();
     }
 
     /// <summary>
@@ -92,8 +96,49 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        SelectedItemObject = Instantiate(HUDItems[SelectedItem].iObject);
-        HUDItems[SelectedItem].iWorldObject = SelectedItemObject;
-        uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
+        string[] items = GameManager.PurchasedItems.ToArray();
+
+        int slot = 0;
+
+        for (int k=0; k < items.Length; k++)
+        {
+            for (int j=0; j < Weapons.Length; j++)
+            {
+                if (items[k] == Weapons[j].iName)
+                {
+                    SetWeapon(j, slot);
+                    slot++;
+                }
+            }
+
+            for (int l=0; l < Consumables.Length; l++)
+            {
+                if (items[k] == Consumables[l].iName)
+                {
+                    SetConsumable(l);
+                }
+            }
+        }
+
+        for (int i=0; i < HUDItems.Length; i++)
+        {
+            if (HUDItems[i] == null)
+                continue;
+
+            if (HUDItems[i].iCharacterType == CharacterType.Any)
+                continue;
+
+            if (HUDItems[i].iCharacterType != GameManager.CharType)
+            {
+                HUDItems[i] = null;
+            }
+        }
+
+        if (HUDItems[SelectedItem] != null)
+        {
+            SelectedItemObject = Instantiate(HUDItems[SelectedItem].iObject);
+            HUDItems[SelectedItem].iWorldObject = SelectedItemObject;
+            uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
+        }
     }
 }

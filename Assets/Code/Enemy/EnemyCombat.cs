@@ -44,6 +44,7 @@ public class EnemyCombat : AudioInterface
         if (Health <= 0)
         {
             EnemyGFX.SetActive(false);
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
             
             if (!DeathSoundDebouce)
             {
@@ -74,7 +75,7 @@ public class EnemyCombat : AudioInterface
         AnimationManager.AttackAnimation(true);
         m_NextAttackTime = Time.time + AttackSpeed;
         // TODO: Attack
-        GameManager.AmendHealth(AttackDamage, '-');
+        GameManager.AmendHealth((Health > Health / 4) ? AttackDamage : AttackDamage / 2, '-');
         Invoke("EndAttack", AttackSpeed);
     }
 

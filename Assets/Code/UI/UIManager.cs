@@ -71,7 +71,7 @@ public class UIManager : MonoBehaviour
         GameManager.CanUseWeapon = true;
     }
 
-    void Update()
+    private void Update()
     {
         // Currency
         CurrencyText.SetText(GameManager.GetCurrency().ToString());

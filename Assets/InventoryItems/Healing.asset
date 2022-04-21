@@ -18,5 +18,6 @@ MonoBehaviour:
   iWorldObject: {fileID: 0}
   iCharacterType: 0
   iType: 1
+  iCost: 50
   cValue: 20
   cType: 0

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a759025803fe274c8beba01af314df2, type: 3}
+  m_Name: LongSword
+  m_EditorClassIdentifier: 
+  iName: LongSword
+  iSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  iObject: {fileID: 6087593187987603435, guid: 6ee03dad2c95899419f83d079d9da909, type: 3}
+  iWorldObject: {fileID: 0}
+  iCharacterType: 1
+  iType: 0
+  iCost: 1000
+  wDamage: 50
+  wAttackSpeed: 1.5
+  wCrosshairRange: 3
+  wDestroyProjectileTime: 0
+  wType: 0
+  wProjectile: {fileID: 0}

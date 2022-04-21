@@ -11,6 +11,7 @@ public class InventoryItem : ScriptableObject
     public GameObject iWorldObject;
     public CharacterType iCharacterType;
     public ItemType iType;
+    public int iCost;
 
     public virtual void Use() { throw new System.NotImplementedException(); }
     public virtual Weapon GetWeapon() { throw new System.NotImplementedException(); }

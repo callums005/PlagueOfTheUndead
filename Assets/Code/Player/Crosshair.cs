@@ -12,7 +12,7 @@ public class Crosshair : MonoBehaviour
 
     private void Update()
     {
-        Weapon weapon = InventoryManager.HUDItems[InventoryManager.SelectedItem].GetWeapon();
+        Weapon weapon = InventoryManager.HUDItems[InventoryManager.SelectedItem]?.GetWeapon();
 
         nearestEnemy = CombatManager.GetNearestEnemy();
 
