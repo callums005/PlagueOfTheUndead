@@ -133,12 +133,5 @@ public class InventoryManager : MonoBehaviour
                 HUDItems[i] = null;
             }
         }
-
-        if (HUDItems[SelectedItem] != null)
-        {
-            SelectedItemObject = Instantiate(HUDItems[SelectedItem].iObject);
-            HUDItems[SelectedItem].iWorldObject = SelectedItemObject;
-            uiManager.UpdateInventoryUI(HUDItems, SelectedItem);
-        }
     }
 }

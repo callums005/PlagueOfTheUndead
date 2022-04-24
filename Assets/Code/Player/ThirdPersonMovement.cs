@@ -24,6 +24,10 @@ public class ThirdPersonMovement : MonoBehaviour
     [Header("Game Objects")]
     public InputManager InputManager;
     public Transform GroundCheck;
+    
+    [Header("Animators")]
+    public Animator KnightAnimator;
+    public Animator MageAnimator;
 
     private float m_TurnSmoothm_Velocity;
     private Vector3 m_Velocity;
@@ -59,12 +63,24 @@ public class ThirdPersonMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
+            if (GameManager.CharType == CharacterType.Knight)
+                KnightAnimator.SetBool("IsWalking", true);
+            else if (GameManager.CharType == CharacterType.Mage)
+                MageAnimator.SetBool("IsWalking", true);
+
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + GameCamera.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref m_TurnSmoothm_Velocity, TurnTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             Controller.Move(moveDir.normalized * Speed * Time.deltaTime);
+        }
+        else
+        {
+            if (GameManager.CharType == CharacterType.Knight)
+                KnightAnimator.SetBool("IsWalking", false);
+            else if (GameManager.CharType == CharacterType.Mage)
+                MageAnimator.SetBool("IsWalking", false);
         }
 
         // Gravity Physics

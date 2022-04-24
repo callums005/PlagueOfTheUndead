@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: WardersAxe
   m_EditorClassIdentifier: 
   iName: WardersAxe
-  iSprite: {fileID: 0}
-  iObject: {fileID: 0}
+  iSprite: {fileID: 21300000, guid: 7943440a49fdcde4a87c64a7a22bd5da, type: 3}
+  iObject: {fileID: 6087593187987603435, guid: 3ef6d030d9027974bb72234d9548637d, type: 3}
   iWorldObject: {fileID: 0}
   iCharacterType: 1
   iType: 0

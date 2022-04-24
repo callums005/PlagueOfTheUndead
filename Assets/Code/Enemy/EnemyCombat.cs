@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyCombat : AudioInterface
 {
     [Space()]
     public GameObject Player;
     public GameObject EnemyGFX;
+    public Slider HealthSlider;
     public EnemyAnimationManager AnimationManager;
 
     [Header("Enemy Stats")]
@@ -33,8 +35,16 @@ public class EnemyCombat : AudioInterface
             return false;
     }
 
+    private void Start()
+    {
+        HealthSlider.maxValue = float.Parse(Health.ToString());
+        HealthSlider.value = HealthSlider.maxValue;
+    }
+
     private void Update()
     {
+        HealthSlider.value = float.Parse(Health.ToString());
+
         if (!IsEnemyDead())
             Attack(); 
     }
@@ -43,6 +53,7 @@ public class EnemyCombat : AudioInterface
     {
         if (Health <= 0)
         {
+            HealthSlider.gameObject.SetActive(false);
             EnemyGFX.SetActive(false);
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
             

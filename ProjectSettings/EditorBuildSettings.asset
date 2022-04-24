@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Load.unity
+    path: Assets/Scenes/Menus/Load.unity
     guid: a0bb47a617cacee4388a7e5a01c527fc
   - enabled: 1
-    path: Assets/Scenes/Shop.unity
+    path: Assets/Scenes/Menus/Shop.unity
     guid: e89814c9db82d4745857bce3a5120fe6
   - enabled: 1
-    path: Assets/Scenes/Graveyard.unity
+    path: Assets/Scenes/Maps/Graveyard.unity
     guid: 73f521bb82db4b74882856f1f73cf89c
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
+    path: Assets/Scenes/Menus/GameOver.unity
     guid: 34344fd8e47afdb40af6f0cadd0521fc
   m_configObjects: {}

@@ -29,6 +29,8 @@ public class Weapon : InventoryItem
         if (Time.time < m_NextAttackTime)
             return;
 
+        iWorldObject.transform.parent.parent.GetComponent<PlayerObjectGraphics>().UseWeaponAttackAnimation();
+
         switch (wType)
         {
             case WeaponType.Mylee:
@@ -57,6 +59,7 @@ public class Weapon : InventoryItem
                     return;
 
                 m_NextAttackTime = Time.time + wAttackSpeed;
+
                 if (colliderData.CollidedObject.GetComponent<EnemyCombat>().TakeDamage(wDamage))
                     GameManager.AddXP(5);
                 break;

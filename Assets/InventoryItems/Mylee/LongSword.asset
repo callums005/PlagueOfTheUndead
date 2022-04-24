@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LongSword
   m_EditorClassIdentifier: 
   iName: LongSword
-  iSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  iSprite: {fileID: 21300000, guid: 09f6b9d311a871d489a902f36de5293c, type: 3}
   iObject: {fileID: 6087593187987603435, guid: 6ee03dad2c95899419f83d079d9da909, type: 3}
   iWorldObject: {fileID: 0}
   iCharacterType: 1
