@@ -18,7 +18,7 @@ MonoBehaviour:
   iWorldObject: {fileID: 0}
   iCharacterType: 1
   iType: 0
-  iCost: 1000
+  iCost: 400
   wDamage: 50
   wAttackSpeed: 1.5
   wCrosshairRange: 3

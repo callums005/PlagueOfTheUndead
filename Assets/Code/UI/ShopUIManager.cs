@@ -85,7 +85,7 @@ public class ShopUIManager : MonoBehaviour
 
     public void StartButton()
     {
-        SceneManager.LoadScene("Graveyard", LoadSceneMode.Single);
+        SceneManager.LoadScene(GameManager.NextScene, LoadSceneMode.Single);
     }
 
     public void BackButton()

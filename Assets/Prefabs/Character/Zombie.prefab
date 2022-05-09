@@ -250,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimationManager: {fileID: 8731147003207358064}
   Agent: {fileID: 3157387718058119561}
-  FollowRadius: 16
+  FollowRadius: 7.5
   AgentReachedPathTargetDelay: 1
   Player: {fileID: 0}
   PathTarget: {fileID: 3157387717816225610}

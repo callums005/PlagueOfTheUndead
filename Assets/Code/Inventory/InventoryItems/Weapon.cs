@@ -61,7 +61,10 @@ public class Weapon : InventoryItem
                 m_NextAttackTime = Time.time + wAttackSpeed;
 
                 if (colliderData.CollidedObject.GetComponent<EnemyCombat>().TakeDamage(wDamage))
-                    GameManager.AddXP(5);
+                {
+                    GameManager.AddXP(15);
+                    GameManager.AmendCurrency(50, '+');
+                }
                 break;
             case WeaponType.Spell:
                 m_NextAttackTime = Time.time + wAttackSpeed;

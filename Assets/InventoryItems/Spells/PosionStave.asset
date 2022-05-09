@@ -19,7 +19,7 @@ MonoBehaviour:
   iCharacterType: 2
   iType: 0
   iCost: 1500
-  wDamage: 65
+  wDamage: 80
   wAttackSpeed: 1.4
   wCrosshairRange: 5
   wDestroyProjectileTime: 1.4

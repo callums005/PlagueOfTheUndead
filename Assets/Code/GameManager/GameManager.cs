@@ -34,8 +34,9 @@ public static class GameManager
     public static bool CanUseWeapon = true;
     public static bool CanMoveCamera = true;
     public static List<string> PurchasedItems = new List<string>();
+    public static string NextScene = "Graveyard";
 
-    private static int Currency = 10000;
+    private static int Currency = 1000;
     private static readonly decimal  MaxHealth = 100;
     private static decimal Health = 100;
     private static decimal XP = 0;

@@ -15,6 +15,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Maps/Graveyard.unity
     guid: 73f521bb82db4b74882856f1f73cf89c
   - enabled: 1
+    path: Assets/Scenes/Maps/Mausoleum.unity
+    guid: 7faf8b0005c873b41887ef6c086b2b2c
+  - enabled: 1
+    path: Assets/Scenes/Maps/Cave.unity
+    guid: 13d0007cdba025044b0d43e351d21d0e
+  - enabled: 1
+    path: Assets/Scenes/Maps/Forrest.unity
+    guid: a53f3a7196bed2449954802bcbb9c572
+  - enabled: 1
     path: Assets/Scenes/Menus/GameOver.unity
     guid: 34344fd8e47afdb40af6f0cadd0521fc
+  - enabled: 1
+    path: Assets/Scenes/Menus/Final.unity
+    guid: c1aaf4407c594e0479d42642c193c26b
   m_configObjects: {}

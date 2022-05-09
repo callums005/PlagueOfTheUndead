@@ -37,7 +37,10 @@ public class SpellCollider : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             if (other.gameObject.GetComponent<EnemyCombat>().TakeDamage(m_Damage))
-                GameManager.AddXP(5);
+            {
+                GameManager.AddXP(15);
+                GameManager.AmendCurrency(50, '+');
+            }
 
         }
 
